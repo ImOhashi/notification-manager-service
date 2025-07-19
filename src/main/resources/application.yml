@@ -1,6 +1,13 @@
 ### server
 server:
-  port: ${SERVER_PORT:9000}
+  port: ${SERVER_PORT:9090}
+
+### application
+app:
+  kafka:
+    topics:
+      email-topic:
+        name: ${EMAIL_TOPIC_NAME}
 
 ### spring
 spring:
