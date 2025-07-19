@@ -11,7 +11,8 @@ import org.springframework.kafka.core.KafkaAdmin.NewTopics
 
 @Configuration
 class KafkaAdminConfig(
-    @Value("\${app.kafka.topics.email-topic.name}") private val emailTopic: String,
+    @Value("\${app.kafka.topics.email-topic.name}") private val emailTopicName: String,
+    @Value("\${app.kafka.topics.email-topic.partitions}") private val emailTopicPartitions: Int,
     private val properties: KafkaProperties
 ) {
 
@@ -26,6 +27,9 @@ class KafkaAdminConfig(
 
     @Bean
     fun newTopics(): NewTopics = KafkaAdmin.NewTopics(
-        TopicBuilder.name(this.emailTopic).partitions(1).build()
+        TopicBuilder
+            .name(this.emailTopicName)
+            .partitions(this.emailTopicPartitions)
+            .build()
     )
 }
