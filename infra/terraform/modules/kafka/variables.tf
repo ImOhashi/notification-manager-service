@@ -12,7 +12,7 @@ variable "tls" {
 
 variable "email_service_topic_name" {
   type        = string
-  default     = "email_service_topic"
+  default     = "email-service-topic"
   description = "Email service topic name"
 }
 
