@@ -19,8 +19,8 @@ class KafkaProducerConfig(
     fun producerFactory(): ProducerFactory<String, String> {
         val configProps: Map<String, Any> = mapOf(
             ProducerConfig.BOOTSTRAP_SERVERS_CONFIG to properties.bootstrapServers,
-            ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG to StringSerializer::class,
-            ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG to JsonSerializer::class
+            ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG to StringSerializer::class.java.name,
+            ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG to JsonSerializer::class.java.name
         )
 
         return DefaultKafkaProducerFactory(configProps)
