@@ -8,7 +8,6 @@ app:
     topics:
       email-topic:
         name: ${EMAIL_TOPIC_NAME}
-        partitions: ${EMAIL_TOPIC_PARTITIONS}
 
 ### spring
 spring:

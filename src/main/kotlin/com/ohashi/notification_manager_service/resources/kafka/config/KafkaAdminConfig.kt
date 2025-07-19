@@ -24,12 +24,4 @@ class KafkaAdminConfig(
 
         return KafkaAdmin(configs)
     }
-
-    @Bean
-    fun newTopics(): NewTopics = KafkaAdmin.NewTopics(
-        TopicBuilder
-            .name(this.emailTopicName)
-            .partitions(this.emailTopicPartitions)
-            .build()
-    )
 }
