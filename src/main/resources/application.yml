@@ -1,0 +1,36 @@
+### server
+server:
+  port: ${SERVER_PORT:9000}
+
+### spring
+spring:
+  application:
+    name: notification-manager-service
+  output:
+    ansi:
+      enabled: ALWAYS
+
+### swagger:
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /docs
+    operationsSorter: method
+
+### actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info,health
+  info:
+    env:
+      enabled: true
+
+### info
+info:
+  app:
+    version: 1.0.0
+    name: notification-manager-service
+    author: Leonardo Ohashi
