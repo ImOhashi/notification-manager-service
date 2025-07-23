@@ -1,4 +1,14 @@
 services:
+  dynamodb-local:
+    container_name: "dynamodb-local-notification-manager-service"
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    image: "amazon/dynamodb-local:latest"
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./docker/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
+
   kafka:
     container_name: "kafka-notification-manager-service"
     image: confluentinc/cp-kafka:latest
